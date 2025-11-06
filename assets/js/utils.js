@@ -222,6 +222,8 @@ export function redirectToNotFoundPage(condition) {
 
 export function loggout() {
   localStorage.removeItem("token");
+  localStorage.removeItem('wishlist')
+  localStorage.removeItem('cart')
   const users = JSON.parse(localStorage.getItem("users") || []);
   const updatedUsers = users.map((user) => {
     const { token, ...rest } = user;
@@ -378,7 +380,7 @@ export class User {
       phone: this.#phone,
       password: this.#password,
       want_to_be_seller: this.#sellerRadio,
-      role: this.constructor.name,
+      role: "Customer",
     };
   }
 
