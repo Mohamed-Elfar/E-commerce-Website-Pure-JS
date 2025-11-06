@@ -1,7 +1,5 @@
-import { sha256 } from "https://esm.sh/js-sha256@0.9.0";
 const APP_SALT = "mohamedsamirelfar";
-
-export function hashPassword(password) {
+function hashPassword(password) {
   return sha256(APP_SALT + password + APP_SALT);
 }
 export function validateHashedPassword(inputPassword, storedHash) {
